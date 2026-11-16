@@ -2,7 +2,7 @@
 
 Thanks for helping. Cabinet Studio is a self-contained, offline HTML app — no build step.
 
-1. Open `index.html` and test the change in a browser.
+1. Open `cabinet-studio.html` and test the change in a browser.
 2. Keep patches focused; include the sample project in any plan/export checks.
 3. By submitting a contribution, you confirm you wrote it or have the right to submit it, and you
    license it under **GPL-3.0-only**.

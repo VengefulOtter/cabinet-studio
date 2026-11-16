@@ -667,7 +667,7 @@
     }
     errorBox.appendChild(el('p', {
       style: { marginTop: '8px', color: 'inherit' },
-      text: 'Every file must stay next to index.html. Reload after fixing the folder.'
+      text: 'Every file must stay next to cabinet-studio.html. Reload after fixing the folder.'
     }));
     errorBox.appendChild(el('button', {
       className: 'btn btn-primary', type: 'button', text: 'Reload',
@@ -2121,7 +2121,7 @@
     setupGlobalErrorTrap();
     setupBeforeUnload();
 
-    // Sub-modules (each loaded after app.js by index.html).
+    // Sub-modules (each loaded after app.js by cabinet-studio.html).
     initModule('inspector');
     initModule('preview');
     initModule('tables');

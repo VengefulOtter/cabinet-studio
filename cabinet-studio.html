@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Cabinet Studio — shop drawings, cut lists &amp; CAD</title>
+<meta name="description" content="A local, self-contained cabinet design studio: design cabinets, read the cut list, follow the assembly steps, and export a full plan set plus CAD files.">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body class="cs-body">
+
+<!-- ───────────────────────── Icon sprite (inline SVG, no network) ───────────────────────── -->
+<svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-brand" viewBox="0 0 32 32">
+    <rect x="3.5" y="5" width="25" height="22" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <line x1="3.5" y1="12.5" x2="28.5" y2="12.5" stroke="currentColor" stroke-width="1.3"/>
+    <line x1="16" y1="5" x2="16" y2="27" stroke="currentColor" stroke-width="1.3"/>
+    <circle cx="12" cy="18.5" r="1.1" fill="currentColor"/>
+    <circle cx="20" cy="18.5" r="1.1" fill="currentColor"/>
+    <path d="M3.5 27 L28.5 27" stroke="currentColor" stroke-width="1.8"/>
+  </symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M15 9V6.6A1.6 1.6 0 0 0 13.4 5H6.6A1.6 1.6 0 0 0 5 6.6v6.8A1.6 1.6 0 0 0 6.6 15H9" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4.5 7h15M9.5 7V5.2A1.2 1.2 0 0 1 10.7 4h2.6a1.2 1.2 0 0 1 1.2 1.2V7M6.5 7l.9 12.1A1.7 1.7 0 0 0 9.1 20.7h5.8a1.7 1.7 0 0 0 1.7-1.6L17.5 7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 11v6M14 11v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-save" viewBox="0 0 24 24"><path d="M5.5 4.5h10.2L19.5 8.3v10.2a1 1 0 0 1-1 1h-13a1 1 0 0 1-1-1v-13a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8 4.5v5h7v-5M8 19.5v-5.6h8v5.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3.5 6.6A1.6 1.6 0 0 1 5.1 5h4l2 2.4h7.8a1.6 1.6 0 0 1 1.6 1.6v9.1a1.6 1.6 0 0 1-1.6 1.6H5.1a1.6 1.6 0 0 1-1.6-1.6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-file-plus" viewBox="0 0 24 24"><path d="M13.5 3.5H7a1.5 1.5 0 0 0-1.5 1.5v14A1.5 1.5 0 0 0 7 20.5h10a1.5 1.5 0 0 0 1.5-1.5V8.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M13.5 3.5v5h5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 12v5M9.5 14.5h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5L12 15l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 16.5v2A1.5 1.5 0 0 0 6 20h12a1.5 1.5 0 0 0 1.5-1.5v-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-design" viewBox="0 0 24 24"><rect x="3.5" y="4" width="10" height="16" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6.5 7.5h4M6.5 10.5h4M6.5 13.5h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M17 5l4 4-6.5 6.5h-4v-4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-cutlist" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9.5h17M3.5 14.5h17M9 4.5v15" stroke="currentColor" stroke-width="1.3"/><path d="M12.5 7h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-assembly" viewBox="0 0 24 24"><path d="M12 3.5l8 4.2-8 4.2-8-4.2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 11.9l8 4.2 8-4.2M4 16.3l8 4.2 8-4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-plans" viewBox="0 0 24 24"><path d="M5 3.5h9l5 5v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-16a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 3.5v5h5" stroke="currentColor" stroke-width="1.6"/><path d="M7.5 12h7M7.5 15h7M7.5 18h4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-library" viewBox="0 0 24 24"><path d="M4 4.5h5.2A2.8 2.8 0 0 1 12 7.3v12.2a3.8 3.8 0 0 0-3.8-3.8H4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M20 4.5h-5.2A2.8 2.8 0 0 0 12 7.3v12.2a3.8 3.8 0 0 1 3.8-3.8H20z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-fit" viewBox="0 0 24 24"><path d="M4 9V5h4M20 9V5h-4M4 15v4h4M20 15v4h-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><rect x="8.5" y="8.5" width="7" height="7" rx="0.8" fill="none" stroke="currentColor" stroke-width="1.4"/></symbol>
+  <symbol id="i-zoom-in" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M15 15l5 5M10.5 7.5v6M7.5 10.5h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-zoom-out" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M15 15l5 5M7.5 10.5h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-ruler" viewBox="0 0 24 24"><rect x="2.8" y="8.2" width="18.4" height="7.6" rx="1" transform="rotate(-8 12 12)" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6.5 10.5l-.6 3.6M10.2 9.9l-.6 3.6M13.9 9.4l-.6 3.6M17.6 8.8l-.6 3.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M4 4.5h7.2l8.3 8.3a1.5 1.5 0 0 1 0 2.1l-4.6 4.6a1.5 1.5 0 0 1-2.1 0L4.5 11.2V4.8A.8.8 0 0 1 5.3 4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="8.3" cy="8.3" r="1.35" fill="currentColor"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3.8l8.2 4.1-8.2 4.1-8.2-4.1z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M4.5 12.1l7.5 3.8 7.5-3.8M4.5 15.9l7.5 3.8 7.5-3.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.2a4.6 4.6 0 0 0 5.9 5.9l-9.9 9.9a2.4 2.4 0 0 1-3.4-3.4l9.9-9.9a4.6 4.6 0 0 0-5.9-5.9 4.6 4.6 0 0 1 3.4 3.4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" transform="translate(1.2 1.2) scale(0.86)"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4.2l8.4 15H3.6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M12 9.5v4.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="12" cy="16.9" r="1.05" fill="currentColor"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 11v5.4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="12" cy="7.9" r="1.05" fill="currentColor"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M15.5 15.5L20.5 20.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M13 4.5h6.5V11M19 5l-7.5 7.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.5 14v5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 19V7.5A1.5 1.5 0 0 1 5.5 6h5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M19.5 9.5A8 8 0 1 0 20 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M19.8 4.5v5.2h-5.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="15" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="9" cy="17" r="2" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 7.4V12l3.2 2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+  <symbol id="i-pdf" viewBox="0 0 24 24"><path d="M5.5 3.5h9l4.5 4.5v12.5a1 1 0 0 1-1 1h-12.5a1 1 0 0 1-1-1v-16a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14.5 3.5V8h4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 17v-4h1.6a1.2 1.2 0 0 1 0 2.4H8M12.4 17v-4h1a1.8 1.8 0 0 1 0 4zM17.4 17v-4h2.2M17.4 15.1h1.8" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-cad" viewBox="0 0 24 24"><path d="M5.5 3.5h9l4.5 4.5v12.5a1 1 0 0 1-1 1h-12.5a1 1 0 0 1-1-1v-16a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14.5 3.5V8h4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7.6 17.4l2-4.4 2 4.4M8.4 16h2.5M13.4 13v4.4M13.4 13h1.2a2.2 2.2 0 0 1 0 4.4h-1.2M17.6 13v4.4h1.8" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3l8 4.4v9.2L12 21l-8-4.4V7.4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 7.4l8 4.4 8-4.4M12 11.8V21" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></symbol>
+  <symbol id="i-door" viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="1" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="15.4" cy="12" r="1" fill="currentColor"/><rect x="7.6" y="6.1" width="8.8" height="11.8" rx="0.6" fill="none" stroke="currentColor" stroke-width="1.1"/></symbol>
+  <symbol id="i-drawer" viewBox="0 0 24 24"><rect x="4" y="4.5" width="16" height="15" rx="1" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M4 9.5h16M4 14.5h16" stroke="currentColor" stroke-width="1.2"/><path d="M9.5 7h5M9.5 12h5M9.5 17h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-panel" viewBox="0 0 24 24"><rect x="4.5" y="3.5" width="15" height="17" rx="1" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M7.5 6.5l9 11M7.5 12l4.5 5.5" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" opacity="0.65"/></symbol>
+  <symbol id="i-hinge" viewBox="0 0 24 24"><path d="M8 4.5h8a1.5 1.5 0 0 1 1.5 1.5v12a1.5 1.5 0 0 1-1.5 1.5H8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="8.4" r="2.3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 10.7v3.6M10.4 17h3.2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4.5 12h15M13.5 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-shelf" viewBox="0 0 24 24"><path d="M4 4v16M20 4v16M4 9.3h16M4 14.6h16M4 19.9h16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 8V4.5h10V8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><rect x="4" y="8" width="16" height="8.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 13.5h10v6H7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="16.9" cy="11" r="0.9" fill="currentColor"/></symbol>
+  <symbol id="i-spinner" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="14 40"/></symbol>
+  <symbol id="i-ruler-line" viewBox="0 0 24 24"><path d="M3 17.5L17.5 3M3 17.5V21h3.5M17.5 3H21v3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8.5 12l1.6 1.6M11.5 9l1.6 1.6M14.5 6l1.6 1.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+</svg>
+
+<script>window.__csLoadErrors=[];window.__csLoadFailed=function(file){window.__csLoadErrors.push(file);};</script>
+<div class="app" id="app">
+  <!-- Skip link -->
+  <a class="skip-link" href="#main">Skip to workspace</a>
+
+  <!-- ───────────────────────── Header ───────────────────────── -->
+  <header class="topbar" role="banner">
+    <a class="brand" href="#design" aria-label="Cabinet Studio — Design tab">
+      <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-brand"/></svg></span>
+      <span class="brand-word"><span class="brand-word-main">Cabinet</span><span class="brand-word-sub">Studio</span></span>
+    </a>
+
+    <div class="topbar-project">
+      <button class="project-trigger" id="project-trigger" type="button" title="Project details, new project, sample project">
+        <span class="project-trigger-main">
+          <span class="project-name" id="project-name">Cabinet project</span>
+          <span class="project-meta" id="project-meta">Starting up…</span>
+        </span>
+        <svg class="icon icon-sm" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+      </button>
+      <div class="project-menu" id="project-menu" hidden>
+        <div class="menu-section-label">Project</div>
+        <button class="menu-item" id="menu-project-details" type="button" data-project-action="details">
+          <svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>
+          <span><strong>Project details</strong><small>Name, client, shop, defaults</small></span>
+        </button>
+        <button class="menu-item" id="menu-new-project" type="button" data-project-action="new">
+          <svg class="icon" aria-hidden="true"><use href="#i-file-plus"/></svg>
+          <span><strong>New project</strong><small>Set up a space and design the first cabinet</small></span>
+        </button>
+        <button class="menu-item" id="menu-sample-project" type="button" data-project-action="sample">
+          <svg class="icon" aria-hidden="true"><use href="#i-design"/></svg>
+          <span><strong>Sample kitchen</strong><small>A complete run, ready to explore</small></span>
+        </button>
+        <div class="menu-sep" role="separator"></div>
+        <div class="menu-section-label">File</div>
+        <button class="menu-item" id="menu-open-project" type="button" data-project-action="open">
+          <svg class="icon" aria-hidden="true"><use href="#i-folder"/></svg>
+          <span><strong>Open project…</strong><small>Load a Cabinet Studio JSON</small></span>
+        </button>
+        <button class="menu-item" id="menu-save-project" type="button" data-project-action="save">
+          <svg class="icon" aria-hidden="true"><use href="#i-save"/></svg>
+          <span><strong>Save project file</strong><small>Download the project as JSON</small></span>
+        </button>
+        <div class="menu-sep" role="separator"></div>
+        <button class="menu-item" id="menu-about" type="button" data-project-action="about">
+          <svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>
+          <span><strong>About &amp; licence</strong><small>GPL-3.0 and third-party notices</small></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="topbar-actions">
+      <span class="save-state" id="save-state" data-state="idle" title="Projects are saved in this browser automatically">
+        <span class="save-state-dot" aria-hidden="true"></span>
+        <span class="save-state-text" id="save-state-text">Saved</span>
+      </span>
+      <div class="units-switch" role="group" aria-label="Display units">
+        <button type="button" class="units-btn" id="units-imperial" data-units="imperial" aria-pressed="true">Imperial</button>
+        <button type="button" class="units-btn" id="units-metric" data-units="metric" aria-pressed="false">Metric</button>
+      </div>
+      <div class="topbar-buttons">
+        <button class="btn btn-primary" id="btn-export-shortcut" type="button" title="Go to plans and export">
+          <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><span class="btn-label">Export</span>
+        </button>
+      </div>
+    </div>
+    <input type="file" id="file-input" accept=".json,application/json" hidden>
+  </header>
+
+  <!-- ───────────────────────── Tabs ───────────────────────── -->
+  <nav class="tabbar" aria-label="Workspace sections">
+    <div class="tabbar-tabs" role="tablist" aria-label="Workspace">
+      <a class="tab is-active" id="tab-design" role="tab" href="#design" aria-selected="true" aria-controls="panel-design" data-tab="design">
+        <svg class="icon" aria-hidden="true"><use href="#i-design"/></svg><span>Design</span><span class="tab-count" id="tab-count-design"></span>
+      </a>
+      <a class="tab" id="tab-cutlist" role="tab" href="#cutlist" aria-selected="false" aria-controls="panel-cutlist" data-tab="cutlist" tabindex="-1">
+        <svg class="icon" aria-hidden="true"><use href="#i-cutlist"/></svg><span>Cut list</span><span class="tab-count" id="tab-count-cutlist"></span>
+      </a>
+      <a class="tab" id="tab-assembly" role="tab" href="#assembly" aria-selected="false" aria-controls="panel-assembly" data-tab="assembly" tabindex="-1">
+        <svg class="icon" aria-hidden="true"><use href="#i-assembly"/></svg><span>Assembly</span><span class="tab-count" id="tab-count-assembly"></span>
+      </a>
+      <a class="tab" id="tab-plans" role="tab" href="#plans" aria-selected="false" aria-controls="panel-plans" data-tab="plans" tabindex="-1">
+        <svg class="icon" aria-hidden="true"><use href="#i-plans"/></svg><span>Plans &amp; export</span>
+      </a>
+      <a class="tab" id="tab-library" role="tab" href="#library" aria-selected="false" aria-controls="panel-library" data-tab="library" tabindex="-1">
+        <svg class="icon" aria-hidden="true"><use href="#i-library"/></svg><span>Technique library</span>
+      </a>
+    </div>
+    <div class="tabbar-status" id="tabbar-status" aria-live="polite"></div>
+  </nav>
+
+  <!-- ───────────────────────── Main workspace ───────────────────────── -->
+  <main class="workspace" id="main">
+
+    <!-- ░░ Design ░░ -->
+    <section class="tab-panel is-active" id="panel-design" data-panel="design" role="tabpanel" aria-labelledby="tab-design" data-design-mode="guided">
+      <div class="advanced-bar" id="advanced-bar" hidden>
+        <span class="advanced-bar-badge">Advanced editor</span>
+        <span class="advanced-bar-text">Every cabinet field is available here. The guided flow is the faster way to add and edit cabinets.</span>
+        <button class="btn btn-secondary btn-sm" id="back-to-guided" type="button">Back to guided design</button>
+      </div>
+      <div class="guided-root" id="guided-root" data-mode="overview"></div>
+      <div class="design-grid" id="design-grid" hidden>
+        <aside class="design-rail" aria-label="Cabinet list">
+          <div class="rail-head">
+            <h2 class="rail-title">Cabinets <span class="rail-count" id="rail-count">0</span></h2>
+            <div class="rail-add" role="group" aria-label="Add a cabinet">
+              <button class="btn btn-quiet btn-add" id="btn-add-base" type="button" title="Add a base cabinet">
+                <svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>Base
+              </button>
+              <button class="btn btn-quiet btn-add" id="btn-add-wall" type="button" title="Add a wall cabinet">
+                <svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>Wall
+              </button>
+              <button class="btn btn-quiet btn-add" id="btn-add-tall" type="button" title="Add a tall cabinet">
+                <svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>Tall
+              </button>
+            </div>
+          </div>
+          <div class="rail-list" id="cabinet-list" role="list" aria-label="Cabinets in this project"></div>
+          <div class="rail-foot" id="rail-foot"></div>
+        </aside>
+
+        <div class="design-center">
+          <section class="preview-panel" aria-label="Cabinet preview">
+            <div class="preview-toolbar" id="preview-toolbar"></div>
+            <div class="preview-canvas-wrap" id="preview-canvas-wrap" tabindex="0" role="img" aria-label="Cabinet drawing">
+              <canvas id="preview-canvas"></canvas>
+              <div class="preview-overlay" id="preview-overlay" hidden></div>
+              <div class="preview-empty" id="preview-empty" hidden></div>
+            </div>
+            <div class="preview-status" id="preview-status"></div>
+          </section>
+          <section class="warnings-panel" id="warnings-panel" aria-label="Design warnings"></section>
+        </div>
+
+        <aside class="inspector-panel" id="inspector" aria-label="Cabinet properties"></aside>
+      </div>
+    </section>
+
+    <!-- ░░ Cut list ░░ -->
+    <section class="tab-panel" id="panel-cutlist" data-panel="cutlist" role="tabpanel" aria-labelledby="tab-cutlist" hidden>
+      <div class="page">
+        <header class="page-head">
+          <div class="page-head-text">
+            <h1 class="page-title">Cut list</h1>
+            <p class="page-sub" id="cutlist-sub">Every part, grouped by material, with sheet nesting and hardware.</p>
+          </div>
+          <div class="page-head-actions" id="cutlist-actions"></div>
+        </header>
+        <div class="page-body" id="cutlist-body"></div>
+      </div>
+    </section>
+
+    <!-- ░░ Assembly ░░ -->
+    <section class="tab-panel" id="panel-assembly" data-panel="assembly" role="tabpanel" aria-labelledby="tab-assembly" hidden>
+      <div class="page">
+        <header class="page-head">
+          <div class="page-head-text">
+            <h1 class="page-title">Assembly</h1>
+            <p class="page-sub" id="assembly-sub">Follow the build order step by step — parts, tools, glue and QC checks.</p>
+          </div>
+          <div class="page-head-actions" id="assembly-actions"></div>
+        </header>
+        <div class="page-body" id="assembly-body"></div>
+      </div>
+    </section>
+
+    <!-- ░░ Plans & export ░░ -->
+    <section class="tab-panel" id="panel-plans" data-panel="plans" role="tabpanel" aria-labelledby="tab-plans" hidden>
+      <div class="page">
+        <header class="page-head">
+          <div class="page-head-text">
+            <h1 class="page-title">Plans &amp; export</h1>
+            <p class="page-sub">A complete shop plan set as a PDF, plus DXF and DWG for the CNC shop.</p>
+          </div>
+          <div class="page-head-actions" id="plans-actions"></div>
+        </header>
+        <div class="page-body" id="plans-body"></div>
+      </div>
+    </section>
+
+    <!-- ░░ Technique library ░░ -->
+    <section class="tab-panel" id="panel-library" data-panel="library" role="tabpanel" aria-labelledby="tab-library" hidden>
+      <div class="page">
+        <header class="page-head">
+          <div class="page-head-text">
+            <h1 class="page-title">Technique library</h1>
+            <p class="page-sub">Researched construction options, with the trade-offs and the tooling each one needs.</p>
+          </div>
+          <div class="page-head-actions" id="library-actions"></div>
+        </header>
+        <div class="page-body" id="library-body"></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="toast-stack" id="toast-stack" aria-live="polite" aria-atomic="false"></div>
+<div class="modal-host" id="modal-host" hidden></div>
+
+<!-- Boot screen: replaced by the app as soon as modules are ready. -->
+<div class="boot" id="boot">
+  <div class="boot-card">
+    <div class="boot-brand">
+      <span class="brand-mark brand-mark-lg"><svg viewBox="0 0 32 32" aria-hidden="true"><use href="#i-brand"/></svg></span>
+      <div>
+        <div class="boot-title">Cabinet Studio</div>
+        <div class="boot-sub">Shop drawings, cut lists &amp; CAD</div>
+      </div>
+    </div>
+    <div class="boot-status" id="boot-status">
+      <span class="spinner" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-spinner"/></svg></span>
+      <span>Opening the workshop…</span>
+    </div>
+    <div class="boot-error" id="boot-error" hidden></div>
+  </div>
+</div>
+
+<noscript>
+  <div class="noscript">Cabinet Studio needs JavaScript enabled to run. It is a fully local app — nothing is sent anywhere.</div>
+</noscript>
+
+<!-- ═══════════════ Vendor (pre-built, file:// safe) ═══════════════ -->
+<script src="js/vendor/jspdf.umd.min.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/vendor/jspdf.umd.min.js')"></script>
+<script src="js/vendor/nasjidwg.bundle.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/vendor/nasjidwg.bundle.js')"></script>
+<!-- ═══════════════ Core ═══════════════ -->
+<script src="js/core/units.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/core/units.js')"></script>
+<script src="js/core/util.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/core/util.js')"></script>
+<script src="js/core/project.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/core/project.js')"></script>
+<!-- ═══════════════ Data ═══════════════ -->
+<script src="js/data/techniques.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/data/techniques.js')"></script>
+<script src="js/data/presets.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/data/presets.js')"></script>
+<!-- ═══════════════ Engine ═══════════════ -->
+<script src="js/engine/defaults.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/engine/defaults.js')"></script>
+<script src="js/engine/parts.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/engine/parts.js')"></script>
+<script src="js/engine/cabinet.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/engine/cabinet.js')"></script>
+<script src="js/engine/cutlist.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/engine/cutlist.js')"></script>
+<script src="js/engine/assembly.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/engine/assembly.js')"></script>
+<script src="js/engine/check.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/engine/check.js')"></script>
+<script src="js/engine/index.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/engine/index.js')"></script>
+<!-- ═══════════════ Drawing ═══════════════ -->
+<script src="js/draw/scene.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/draw/scene.js')"></script>
+<script src="js/draw/render.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/draw/render.js')"></script>
+<script src="js/draw/canvas.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/draw/canvas.js')"></script>
+<script src="js/draw/iso.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/draw/iso.js')"></script>
+<script src="js/draw/views.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/draw/views.js')"></script>
+<script src="js/draw/parts.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/draw/parts.js')"></script>
+<script src="js/draw/assembly.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/draw/assembly.js')"></script>
+<!-- ═══════════════ Export: CAD ═══════════════ -->
+<script src="js/export/cad-layout.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/export/cad-layout.js')"></script>
+<script src="js/export/dxf.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/export/dxf.js')"></script>
+<script src="js/export/dwg.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/export/dwg.js')"></script>
+<!-- ═══════════════ Export: PDF ═══════════════ -->
+<script src="js/export/pdf/page.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/export/pdf/page.js')"></script>
+<script src="js/export/pdf/backend.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/export/pdf/backend.js')"></script>
+<script src="js/export/pdf/tables.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/export/pdf/tables.js')"></script>
+<script src="js/export/pdf/plan-set.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/export/pdf/plan-set.js')"></script>
+<script src="js/export/pdf/index.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/export/pdf/index.js')"></script>
+<!-- ═══════════════ Export: unified API ═══════════════ -->
+<script src="js/export/exports.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/export/exports.js')"></script>
+<!-- ═══════════════ UI ═══════════════ -->
+<script src="js/ui/app.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/ui/app.js')"></script>
+<script src="js/ui/inspector.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/ui/inspector.js')"></script>
+<script src="js/ui/preview.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/ui/preview.js')"></script>
+<script src="js/ui/guided.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/ui/guided.js')"></script>
+<script src="js/ui/tables.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/ui/tables.js')"></script>
+<script src="js/ui/library.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/ui/library.js')"></script>
+<script src="js/ui/project-io.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/ui/project-io.js')"></script>
+<!-- ═══════════════ Boot ═══════════════ -->
+<script src="js/main.js" onerror="window.__csLoadFailed&&window.__csLoadFailed('js/main.js')"></script>
+</body>
+</html>

@@ -230,7 +230,7 @@ The wizard applies a preset to a fresh cabinet through the same mappings the cor
 
 **Files:**
 - `js/ui/guided.js` — new module: wizard state, step renderers, run overview, draft resolve/preview, preset application, launch/close/edit modes.
-- `index.html` — add `js/data/presets.js` after techniques; add `js/ui/guided.js` before project-io/main; add `#guided-root` inside `#panel-design`, keep `.design-grid` in DOM hidden when guided.
+- `cabinet-studio.html` — add `js/data/presets.js` after techniques; add `js/ui/guided.js` before project-io/main; add `#guided-root` inside `#panel-design`, keep `.design-grid` in DOM hidden when guided.
 - `css/app.css` — new `.guided-*` styles; keep existing design-grid styles for Advanced.
 - `js/ui/app.js` — add `designMode` state (`guided`/`advanced`), a public `setDesignMode`, hook `guided.render()` on project/select/resolved/tab events; allow `addCabinet(type, overrides)` or a `addCabinetFromConfig(cfg)` path so the wizard can apply preset values; ensure the existing advanced editor still renders exactly as before.
 - `js/ui/project-io.js` — new project flow starts the wizard (empty project with project.space unset); sample project opens run overview; header file actions can move into the project menu.

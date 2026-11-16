@@ -143,7 +143,7 @@
       errorBox.appendChild(ul);
     }
     var hint = doc.createElement('p');
-    hint.textContent = 'Keep every file and folder from the Cabinet Studio download together, next to index.html, then reload.';
+    hint.textContent = 'Keep every file and folder from the Cabinet Studio download together, next to cabinet-studio.html, then reload.';
     errorBox.appendChild(hint);
     var btn = doc.createElement('button');
     btn.type = 'button';

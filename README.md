@@ -11,7 +11,7 @@ server or build step.
 ## Run it
 
 1. Download/clone the repository.
-2. Open **`index.html`** in Chrome, Safari or Firefox.
+2. Open **`cabinet-studio.html`** in Chrome, Safari or Firefox. (`index.html` is just a redirect for directory/static hosting.)
 3. The sample kitchen opens on the run overview. Use **New project** in the project menu to start
    from an empty wall.
 
