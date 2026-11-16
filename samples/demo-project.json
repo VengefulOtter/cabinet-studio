@@ -1,0 +1,814 @@
+{
+  "schemaVersion": 1,
+  "id": "prj-sample",
+  "name": "Sample kitchen run",
+  "client": "Demo project",
+  "notes": "Sample project: six cabinets showing frameless and face-frame construction, door and drawer fronts, glass and a tall pantry. Duplicate or edit any cabinet, then export the plan set.",
+  "units": "imperial",
+  "pageSize": "tabloid",
+  "orientation": "landscape",
+  "createdAt": "2026-11-15T12:00:00.000Z",
+  "updatedAt": "2026-11-15T12:00:00.000Z",
+  "settings": {
+    "shopName": "Rocket Woodshop",
+    "date": "2026-11-15",
+    "defaultCarcassMaterial": "ply-birch-18",
+    "defaultFaceFrameMaterial": "hardwood-poplar",
+    "defaultDoorMaterial": "hardwood-maple",
+    "defaultDrawerMaterial": "ply-birch-12",
+    "defaultFinish": "paint",
+    "edgeBanding": "pvc-0.5",
+    "sheetWidth": 1220,
+    "sheetHeight": 2440,
+    "sheetTrim": 10,
+    "sheetKerf": 3,
+    "includeSheetLayout": true,
+    "includeAssembly": true,
+    "includeComponentDrawings": true,
+    "dwgVersion": "r2000"
+  },
+  "cabinets": [
+    {
+      "id": "cab-1",
+      "tag": "B1",
+      "name": "Base — sink cabinet",
+      "type": "base",
+      "width": 914.4,
+      "height": 876.3,
+      "depth": 609.6,
+      "construction": {
+        "system": "frameless",
+        "carcassMaterial": "ply-birch-18",
+        "carcassThickness": 18,
+        "joinery": "confirmat",
+        "backStyle": "rabbet",
+        "backMaterial": "ply-birch-6",
+        "backThickness": 6,
+        "backRecess": 12,
+        "dadoDepth": 6,
+        "shelfSystem": "adjustable-pins-32",
+        "shelfPinDiameter": 5,
+        "shelfPinSpacing": 32,
+        "shelfPinFrontSetback": 37,
+        "edgeBanding": "pvc-0.5"
+      },
+      "faceFrame": {
+        "material": "hardwood-poplar",
+        "thickness": 19,
+        "stileWidth": 57.15,
+        "topRailWidth": 57.15,
+        "bottomRailWidth": 57.15,
+        "midRailWidth": 57.15,
+        "joinery": "pocket-screw"
+      },
+      "toeKick": {
+        "style": "separate-platform",
+        "height": 101.6,
+        "setback": 76.2,
+        "material": "ply-birch-18",
+        "finishedFace": true
+      },
+      "interior": {
+        "adjustableShelves": 0,
+        "fixedShelves": 0,
+        "shelfThickness": 18,
+        "shelfMaterial": "ply-birch-18",
+        "shelfFrontSetback": 10,
+        "shelfEdgeband": "pvc-2",
+        "dividers": 0
+      },
+      "front": {
+        "type": "door-drawer",
+        "reveal": 3,
+        "doors": {
+          "count": 2,
+          "style": "shaker",
+          "material": "hardwood-maple",
+          "thickness": 19,
+          "overlay": "full",
+          "stileWidth": 57.15,
+          "railWidth": 57.15,
+          "doorJoinery": "cope-stick",
+          "panelMaterial": "ply-birch-6",
+          "panelThickness": 6.35,
+          "panelStyle": "recessed",
+          "glassThickness": 3,
+          "beadSpacing": 57.15,
+          "muntins": 0,
+          "hingeType": "euro-cup",
+          "hingeCount": "auto",
+          "hingeSide": "auto"
+        },
+        "drawers": {
+          "count": 1,
+          "style": "shaker",
+          "material": "hardwood-maple",
+          "thickness": 19,
+          "heights": null,
+          "boxMaterial": "ply-birch-12",
+          "boxJoinery": "dovetail",
+          "boxSideThickness": 12.7,
+          "boxBottomThickness": 6.35,
+          "boxBottomJoinery": "dado",
+          "boxHeightAllowance": 25,
+          "slide": "undermount",
+          "slideLength": null,
+          "boxWidthClearance": null,
+          "boxDepthClearance": null
+        },
+        "combined": {
+          "drawerHeight": 203.2,
+          "doorsBelow": 2
+        }
+      },
+      "hardware": {
+        "pull": {
+          "id": "bar-128",
+          "finish": "brushed nickel",
+          "placement": "auto"
+        },
+        "softClose": true,
+        "doorBumpers": true,
+        "shelfPins": true,
+        "hangingRail": false
+      },
+      "finish": {
+        "id": "paint",
+        "color": "#eef0e5",
+        "sheen": "satin"
+      },
+      "notes": ""
+    },
+    {
+      "id": "cab-2",
+      "tag": "B2",
+      "name": "Base — three drawers",
+      "type": "base",
+      "width": 762,
+      "height": 876.3,
+      "depth": 609.6,
+      "construction": {
+        "system": "frameless",
+        "carcassMaterial": "ply-birch-18",
+        "carcassThickness": 18,
+        "joinery": "confirmat",
+        "backStyle": "rabbet",
+        "backMaterial": "ply-birch-6",
+        "backThickness": 6,
+        "backRecess": 12,
+        "dadoDepth": 6,
+        "shelfSystem": "adjustable-pins-32",
+        "shelfPinDiameter": 5,
+        "shelfPinSpacing": 32,
+        "shelfPinFrontSetback": 37,
+        "edgeBanding": "pvc-0.5"
+      },
+      "faceFrame": {
+        "material": "hardwood-poplar",
+        "thickness": 19,
+        "stileWidth": 57.15,
+        "topRailWidth": 57.15,
+        "bottomRailWidth": 57.15,
+        "midRailWidth": 57.15,
+        "joinery": "pocket-screw"
+      },
+      "toeKick": {
+        "style": "separate-platform",
+        "height": 101.6,
+        "setback": 76.2,
+        "material": "ply-birch-18",
+        "finishedFace": true
+      },
+      "interior": {
+        "adjustableShelves": 0,
+        "fixedShelves": 0,
+        "shelfThickness": 18,
+        "shelfMaterial": "ply-birch-18",
+        "shelfFrontSetback": 10,
+        "shelfEdgeband": "pvc-2",
+        "dividers": 0
+      },
+      "front": {
+        "type": "drawer-stack",
+        "reveal": 3,
+        "doors": {
+          "count": 2,
+          "style": "shaker",
+          "material": "hardwood-maple",
+          "thickness": 19,
+          "overlay": "full",
+          "stileWidth": 57.15,
+          "railWidth": 57.15,
+          "doorJoinery": "cope-stick",
+          "panelMaterial": "ply-birch-6",
+          "panelThickness": 6.35,
+          "panelStyle": "recessed",
+          "glassThickness": 3,
+          "beadSpacing": 57.15,
+          "muntins": 0,
+          "hingeType": "euro-cup",
+          "hingeCount": "auto",
+          "hingeSide": "auto"
+        },
+        "drawers": {
+          "count": 3,
+          "style": "slab",
+          "material": "hardwood-maple",
+          "thickness": 19,
+          "heights": null,
+          "boxMaterial": "ply-birch-12",
+          "boxJoinery": "dovetail",
+          "boxSideThickness": 12.7,
+          "boxBottomThickness": 6.35,
+          "boxBottomJoinery": "dado",
+          "boxHeightAllowance": 25,
+          "slide": "undermount",
+          "slideLength": null,
+          "boxWidthClearance": null,
+          "boxDepthClearance": null
+        },
+        "combined": {
+          "drawerHeight": 177.8,
+          "doorsBelow": 2
+        }
+      },
+      "hardware": {
+        "pull": {
+          "id": "bar-128",
+          "finish": "brushed nickel",
+          "placement": "auto"
+        },
+        "softClose": true,
+        "doorBumpers": true,
+        "shelfPins": true,
+        "hangingRail": false
+      },
+      "finish": {
+        "id": "paint",
+        "color": "#eef0e5",
+        "sheen": "satin"
+      },
+      "notes": ""
+    },
+    {
+      "id": "cab-3",
+      "tag": "B3",
+      "name": "Base — doors",
+      "type": "base",
+      "width": 609.6,
+      "height": 876.3,
+      "depth": 609.6,
+      "construction": {
+        "system": "frameless",
+        "carcassMaterial": "ply-birch-18",
+        "carcassThickness": 18,
+        "joinery": "confirmat",
+        "backStyle": "rabbet",
+        "backMaterial": "ply-birch-6",
+        "backThickness": 6,
+        "backRecess": 12,
+        "dadoDepth": 6,
+        "shelfSystem": "adjustable-pins-32",
+        "shelfPinDiameter": 5,
+        "shelfPinSpacing": 32,
+        "shelfPinFrontSetback": 37,
+        "edgeBanding": "pvc-0.5"
+      },
+      "faceFrame": {
+        "material": "hardwood-poplar",
+        "thickness": 19,
+        "stileWidth": 57.15,
+        "topRailWidth": 57.15,
+        "bottomRailWidth": 57.15,
+        "midRailWidth": 57.15,
+        "joinery": "pocket-screw"
+      },
+      "toeKick": {
+        "style": "separate-platform",
+        "height": 101.6,
+        "setback": 76.2,
+        "material": "ply-birch-18",
+        "finishedFace": true
+      },
+      "interior": {
+        "adjustableShelves": 1,
+        "fixedShelves": 0,
+        "shelfThickness": 18,
+        "shelfMaterial": "ply-birch-18",
+        "shelfFrontSetback": 10,
+        "shelfEdgeband": "pvc-2",
+        "dividers": 0
+      },
+      "front": {
+        "type": "doors",
+        "reveal": 3,
+        "doors": {
+          "count": 2,
+          "style": "shaker",
+          "material": "hardwood-maple",
+          "thickness": 19,
+          "overlay": "full",
+          "stileWidth": 57.15,
+          "railWidth": 57.15,
+          "doorJoinery": "cope-stick",
+          "panelMaterial": "ply-birch-6",
+          "panelThickness": 6.35,
+          "panelStyle": "recessed",
+          "glassThickness": 3,
+          "beadSpacing": 57.15,
+          "muntins": 0,
+          "hingeType": "euro-cup",
+          "hingeCount": "auto",
+          "hingeSide": "auto"
+        },
+        "drawers": {
+          "count": 3,
+          "style": "slab",
+          "material": "hardwood-maple",
+          "thickness": 19,
+          "heights": null,
+          "boxMaterial": "ply-birch-12",
+          "boxJoinery": "dovetail",
+          "boxSideThickness": 12.7,
+          "boxBottomThickness": 6.35,
+          "boxBottomJoinery": "dado",
+          "boxHeightAllowance": 25,
+          "slide": "undermount",
+          "slideLength": null,
+          "boxWidthClearance": null,
+          "boxDepthClearance": null
+        },
+        "combined": {
+          "drawerHeight": 177.8,
+          "doorsBelow": 2
+        }
+      },
+      "hardware": {
+        "pull": {
+          "id": "bar-128",
+          "finish": "brushed nickel",
+          "placement": "auto"
+        },
+        "softClose": true,
+        "doorBumpers": true,
+        "shelfPins": true,
+        "hangingRail": false
+      },
+      "finish": {
+        "id": "paint",
+        "color": "#eef0e5",
+        "sheen": "satin"
+      },
+      "notes": ""
+    },
+    {
+      "id": "cab-4",
+      "tag": "B4",
+      "name": "Base — face-frame inset",
+      "type": "base",
+      "width": 762,
+      "height": 876.3,
+      "depth": 609.6,
+      "construction": {
+        "system": "faceframe",
+        "carcassMaterial": "ply-birch-18",
+        "carcassThickness": 18,
+        "joinery": "pocket-screw",
+        "backStyle": "rabbet",
+        "backMaterial": "ply-birch-6",
+        "backThickness": 6,
+        "backRecess": 12,
+        "dadoDepth": 6,
+        "shelfSystem": "adjustable-pins-32",
+        "shelfPinDiameter": 5,
+        "shelfPinSpacing": 32,
+        "shelfPinFrontSetback": 37,
+        "edgeBanding": "pvc-0.5"
+      },
+      "faceFrame": {
+        "material": "hardwood-poplar",
+        "thickness": 19,
+        "stileWidth": 57.15,
+        "topRailWidth": 57.15,
+        "bottomRailWidth": 57.15,
+        "midRailWidth": 57.15,
+        "joinery": "pocket-screw"
+      },
+      "toeKick": {
+        "style": "separate-platform",
+        "height": 101.6,
+        "setback": 76.2,
+        "material": "ply-birch-18",
+        "finishedFace": true
+      },
+      "interior": {
+        "adjustableShelves": 1,
+        "fixedShelves": 0,
+        "shelfThickness": 18,
+        "shelfMaterial": "ply-birch-18",
+        "shelfFrontSetback": 10,
+        "shelfEdgeband": "pvc-2",
+        "dividers": 0
+      },
+      "front": {
+        "type": "doors",
+        "reveal": 3,
+        "doors": {
+          "count": 2,
+          "style": "shaker",
+          "material": "hardwood-maple",
+          "thickness": 19,
+          "overlay": "inset",
+          "stileWidth": 57.15,
+          "railWidth": 57.15,
+          "doorJoinery": "cope-stick",
+          "panelMaterial": "ply-birch-6",
+          "panelThickness": 6.35,
+          "panelStyle": "recessed",
+          "glassThickness": 3,
+          "beadSpacing": 57.15,
+          "muntins": 0,
+          "hingeType": "euro-cup",
+          "hingeCount": "auto",
+          "hingeSide": "auto"
+        },
+        "drawers": {
+          "count": 3,
+          "style": "slab",
+          "material": "hardwood-maple",
+          "thickness": 19,
+          "heights": null,
+          "boxMaterial": "ply-birch-12",
+          "boxJoinery": "dovetail",
+          "boxSideThickness": 12.7,
+          "boxBottomThickness": 6.35,
+          "boxBottomJoinery": "dado",
+          "boxHeightAllowance": 25,
+          "slide": "undermount",
+          "slideLength": null,
+          "boxWidthClearance": null,
+          "boxDepthClearance": null
+        },
+        "combined": {
+          "drawerHeight": 177.8,
+          "doorsBelow": 2
+        }
+      },
+      "hardware": {
+        "pull": {
+          "id": "bar-128",
+          "finish": "brushed nickel",
+          "placement": "auto"
+        },
+        "softClose": true,
+        "doorBumpers": true,
+        "shelfPins": true,
+        "hangingRail": false
+      },
+      "finish": {
+        "id": "paint",
+        "color": "#f4f1e9",
+        "sheen": "satin"
+      },
+      "notes": ""
+    },
+    {
+      "id": "cab-5",
+      "tag": "W1",
+      "name": "Wall — doors",
+      "type": "wall",
+      "width": 762,
+      "height": 762,
+      "depth": 304.8,
+      "construction": {
+        "system": "frameless",
+        "carcassMaterial": "ply-birch-18",
+        "carcassThickness": 18,
+        "joinery": "confirmat",
+        "backStyle": "rabbet",
+        "backMaterial": "ply-birch-6",
+        "backThickness": 6,
+        "backRecess": 12,
+        "dadoDepth": 6,
+        "shelfSystem": "adjustable-pins-32",
+        "shelfPinDiameter": 5,
+        "shelfPinSpacing": 32,
+        "shelfPinFrontSetback": 37,
+        "edgeBanding": "pvc-0.5"
+      },
+      "faceFrame": {
+        "material": "hardwood-poplar",
+        "thickness": 19,
+        "stileWidth": 57.15,
+        "topRailWidth": 57.15,
+        "bottomRailWidth": 57.15,
+        "midRailWidth": 57.15,
+        "joinery": "pocket-screw"
+      },
+      "toeKick": {
+        "style": "none",
+        "height": 0,
+        "setback": 0,
+        "material": "ply-birch-18",
+        "finishedFace": false
+      },
+      "interior": {
+        "adjustableShelves": 2,
+        "fixedShelves": 0,
+        "shelfThickness": 18,
+        "shelfMaterial": "ply-birch-18",
+        "shelfFrontSetback": 10,
+        "shelfEdgeband": "pvc-2",
+        "dividers": 0
+      },
+      "front": {
+        "type": "doors",
+        "reveal": 3,
+        "doors": {
+          "count": 2,
+          "style": "shaker",
+          "material": "hardwood-maple",
+          "thickness": 19,
+          "overlay": "full",
+          "stileWidth": 57.15,
+          "railWidth": 57.15,
+          "doorJoinery": "cope-stick",
+          "panelMaterial": "ply-birch-6",
+          "panelThickness": 6.35,
+          "panelStyle": "recessed",
+          "glassThickness": 3,
+          "beadSpacing": 57.15,
+          "muntins": 0,
+          "hingeType": "euro-cup",
+          "hingeCount": "auto",
+          "hingeSide": "auto"
+        },
+        "drawers": {
+          "count": 3,
+          "style": "slab",
+          "material": "hardwood-maple",
+          "thickness": 19,
+          "heights": null,
+          "boxMaterial": "ply-birch-12",
+          "boxJoinery": "dovetail",
+          "boxSideThickness": 12.7,
+          "boxBottomThickness": 6.35,
+          "boxBottomJoinery": "dado",
+          "boxHeightAllowance": 25,
+          "slide": "undermount",
+          "slideLength": null,
+          "boxWidthClearance": null,
+          "boxDepthClearance": null
+        },
+        "combined": {
+          "drawerHeight": 177.8,
+          "doorsBelow": 2
+        }
+      },
+      "hardware": {
+        "pull": {
+          "id": "bar-128",
+          "finish": "brushed nickel",
+          "placement": "auto"
+        },
+        "softClose": true,
+        "doorBumpers": true,
+        "shelfPins": true,
+        "hangingRail": true
+      },
+      "finish": {
+        "id": "paint",
+        "color": "#eef0e5",
+        "sheen": "satin"
+      },
+      "notes": ""
+    },
+    {
+      "id": "cab-6",
+      "tag": "W2",
+      "name": "Wall — glass doors",
+      "type": "wall",
+      "width": 609.6,
+      "height": 762,
+      "depth": 304.8,
+      "construction": {
+        "system": "frameless",
+        "carcassMaterial": "ply-birch-18",
+        "carcassThickness": 18,
+        "joinery": "confirmat",
+        "backStyle": "rabbet",
+        "backMaterial": "ply-birch-6",
+        "backThickness": 6,
+        "backRecess": 12,
+        "dadoDepth": 6,
+        "shelfSystem": "adjustable-pins-32",
+        "shelfPinDiameter": 5,
+        "shelfPinSpacing": 32,
+        "shelfPinFrontSetback": 37,
+        "edgeBanding": "pvc-0.5"
+      },
+      "faceFrame": {
+        "material": "hardwood-poplar",
+        "thickness": 19,
+        "stileWidth": 57.15,
+        "topRailWidth": 57.15,
+        "bottomRailWidth": 57.15,
+        "midRailWidth": 57.15,
+        "joinery": "pocket-screw"
+      },
+      "toeKick": {
+        "style": "none",
+        "height": 0,
+        "setback": 0,
+        "material": "ply-birch-18",
+        "finishedFace": false
+      },
+      "interior": {
+        "adjustableShelves": 3,
+        "fixedShelves": 0,
+        "shelfThickness": 18,
+        "shelfMaterial": "ply-birch-18",
+        "shelfFrontSetback": 10,
+        "shelfEdgeband": "pvc-2",
+        "dividers": 0
+      },
+      "front": {
+        "type": "doors",
+        "reveal": 3,
+        "doors": {
+          "count": 2,
+          "style": "glass",
+          "material": "hardwood-maple",
+          "thickness": 19,
+          "overlay": "full",
+          "stileWidth": 57.15,
+          "railWidth": 57.15,
+          "doorJoinery": "cope-stick",
+          "panelMaterial": "ply-birch-6",
+          "panelThickness": 6.35,
+          "panelStyle": "glass",
+          "glassThickness": 3,
+          "beadSpacing": 57.15,
+          "muntins": 1,
+          "hingeType": "euro-cup",
+          "hingeCount": "auto",
+          "hingeSide": "auto"
+        },
+        "drawers": {
+          "count": 3,
+          "style": "slab",
+          "material": "hardwood-maple",
+          "thickness": 19,
+          "heights": null,
+          "boxMaterial": "ply-birch-12",
+          "boxJoinery": "dovetail",
+          "boxSideThickness": 12.7,
+          "boxBottomThickness": 6.35,
+          "boxBottomJoinery": "dado",
+          "boxHeightAllowance": 25,
+          "slide": "undermount",
+          "slideLength": null,
+          "boxWidthClearance": null,
+          "boxDepthClearance": null
+        },
+        "combined": {
+          "drawerHeight": 177.8,
+          "doorsBelow": 2
+        }
+      },
+      "hardware": {
+        "pull": {
+          "id": "bar-128",
+          "finish": "brushed nickel",
+          "placement": "auto"
+        },
+        "softClose": true,
+        "doorBumpers": true,
+        "shelfPins": true,
+        "hangingRail": true
+      },
+      "finish": {
+        "id": "paint",
+        "color": "#eef0e5",
+        "sheen": "satin"
+      },
+      "notes": ""
+    },
+    {
+      "id": "cab-7",
+      "tag": "T1",
+      "name": "Tall — pantry",
+      "type": "tall",
+      "width": 609.6,
+      "height": 2133.6,
+      "depth": 609.6,
+      "construction": {
+        "system": "frameless",
+        "carcassMaterial": "ply-birch-18",
+        "carcassThickness": 18,
+        "joinery": "confirmat",
+        "backStyle": "rabbet",
+        "backMaterial": "ply-birch-6",
+        "backThickness": 6,
+        "backRecess": 12,
+        "dadoDepth": 6,
+        "shelfSystem": "adjustable-pins-32",
+        "shelfPinDiameter": 5,
+        "shelfPinSpacing": 32,
+        "shelfPinFrontSetback": 37,
+        "edgeBanding": "pvc-0.5"
+      },
+      "faceFrame": {
+        "material": "hardwood-poplar",
+        "thickness": 19,
+        "stileWidth": 57.15,
+        "topRailWidth": 57.15,
+        "bottomRailWidth": 57.15,
+        "midRailWidth": 57.15,
+        "joinery": "pocket-screw"
+      },
+      "toeKick": {
+        "style": "separate-platform",
+        "height": 101.6,
+        "setback": 76.2,
+        "material": "ply-birch-18",
+        "finishedFace": true
+      },
+      "interior": {
+        "adjustableShelves": 5,
+        "fixedShelves": 1,
+        "shelfThickness": 18,
+        "shelfMaterial": "ply-birch-18",
+        "shelfFrontSetback": 10,
+        "shelfEdgeband": "pvc-2",
+        "dividers": 0
+      },
+      "front": {
+        "type": "doors",
+        "reveal": 3,
+        "doors": {
+          "count": 2,
+          "style": "shaker",
+          "material": "hardwood-maple",
+          "thickness": 19,
+          "overlay": "full",
+          "stileWidth": 57.15,
+          "railWidth": 57.15,
+          "doorJoinery": "cope-stick",
+          "panelMaterial": "ply-birch-6",
+          "panelThickness": 6.35,
+          "panelStyle": "recessed",
+          "glassThickness": 3,
+          "beadSpacing": 57.15,
+          "muntins": 0,
+          "hingeType": "euro-cup",
+          "hingeCount": "auto",
+          "hingeSide": "auto"
+        },
+        "drawers": {
+          "count": 3,
+          "style": "slab",
+          "material": "hardwood-maple",
+          "thickness": 19,
+          "heights": null,
+          "boxMaterial": "ply-birch-12",
+          "boxJoinery": "dovetail",
+          "boxSideThickness": 12.7,
+          "boxBottomThickness": 6.35,
+          "boxBottomJoinery": "dado",
+          "boxHeightAllowance": 25,
+          "slide": "undermount",
+          "slideLength": null,
+          "boxWidthClearance": null,
+          "boxDepthClearance": null
+        },
+        "combined": {
+          "drawerHeight": 177.8,
+          "doorsBelow": 2
+        }
+      },
+      "hardware": {
+        "pull": {
+          "id": "bar-128",
+          "finish": "brushed nickel",
+          "placement": "auto"
+        },
+        "softClose": true,
+        "doorBumpers": true,
+        "shelfPins": true,
+        "hangingRail": true
+      },
+      "finish": {
+        "id": "paint",
+        "color": "#eef0e5",
+        "sheen": "satin"
+      },
+      "notes": ""
+    }
+  ],
+  "space": {
+    "wallLength": 4876.8,
+    "ceilingHeight": 2438.4,
+    "counterHeight": 914.4
+  }
+}

@@ -1,0 +1,11 @@
+# Local QA / test artifacts
+.qa/
+*.log
+__pycache__/
+node_modules/
+.venv*/
+*.pyc
+
+# OS junk
+.DS_Store
+Thumbs.db
